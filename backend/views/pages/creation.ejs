@@ -8,11 +8,7 @@
     <h2 class="h5 mb-2">Client Profile</h2>
 
     <dl class="row mb-0">
-      <dt class="col-sm-3">Client ID</dt>
-      <dd class="col-sm-9"><%= r_client.id %></dd>
-
-      <dt class="col-sm-3">Full Name</dt>
-      <dd class="col-sm-9"><%= r_client.fullName %></dd>
+        <%- include("../partials/form") %>
 
       <dt class="col-sm-3">Email</dt>
       <dd class="col-sm-9"><a href="mailto:<%= r_client.email %>"><%= r_client.email %></a></dd>
@@ -37,4 +33,4 @@
       API equivalent: <code>/api/clients/<%= r_client.id %></code>
     </div>
   </div>
-</section>
+</section>>

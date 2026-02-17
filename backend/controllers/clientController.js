@@ -38,11 +38,11 @@ export const renderClientsList = (req, res) => {
   });
 };
 
-// SSR: Client details
+// SSR: Client details (Using the term client causes a problem.)
 export const renderClientDetails = (req, res) => {
   const clients = loadClients();
-  const client = findClientById(clients, req.params.id);
-  if (!client) {
+  const r_client = findClientById(clients, req.params.id);
+  if (!r_client) {
     return res.status(404).render("pages/home", {
       pageTitle: "Client Not Found",
       message: `No client record found for id: ${req.params.id}`,
@@ -50,11 +50,11 @@ export const renderClientDetails = (req, res) => {
     });
   }
   
-  console.log("client keys:", Object.keys(client || {}));
+  console.log("client keys:", Object.keys(r_client || {}));
 
   res.render("pages/clientDetails", {
     pageTitle: "Client Profile",
-    client,
+    r_client,
     now: new Date().toLocaleString()
   });
 };
@@ -68,11 +68,11 @@ export const apiGetClients = (req, res) => {
 // API: client by id
 export const apiGetClientById = (req, res) => {
   const clients = loadClients();
-  const client = findClientById(clients, req.params.id);
+  const r_client = findClientById(r_clients, req.params.id);
 
-  if (!client) {
+  if (!r_client) {
     return res.status(404).json({ error: "Client Not Found", id: req.params.id });
   }
 
-  res.json({ client });
+  res.json({ r_client });
 };
