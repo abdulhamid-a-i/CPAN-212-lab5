@@ -1,13 +1,12 @@
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+
+import { PATHS, SEVERITIES } from "../config.js";
 
 // ES module __dirname replacement (for controllers folder)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 
 const loadClients = () => {
-  const dataPath = path.join(__dirname, "..", "data", "clients.json");
+  const dataPath = PATHS.DATA_PATH
   const raw = fs.readFileSync(dataPath, "utf-8");
   const parsed = JSON.parse(raw);
   return Array.isArray(parsed) ? parsed : [];
@@ -46,7 +45,7 @@ export const renderClientDetails = (req, res) => {
     return res.status(404).render("pages/home", {
       pageTitle: "Client Not Found",
       message: `No client record found for id: ${req.params.id}`,
-      now: new Date().toLocaleString()
+      now: new Date().toLocaleString(),
     });
   }
   
@@ -55,9 +54,49 @@ export const renderClientDetails = (req, res) => {
   res.render("pages/clientDetails", {
     pageTitle: "Client Profile",
     r_client,
-    now: new Date().toLocaleString()
+    now: new Date().toLocaleString(),
   });
 };
+
+export const renderClientEditDetails = (req, res) => {
+  const clients = loadClients();
+  const r_client = findClientById(clients, req.params.id);
+  if (!r_client) {
+    return res.status(404).render("pages/home", {
+      pageTitle: "Client Not Found",
+      message: `No client record found for id: ${req.params.id}`,
+      now: new Date().toLocaleString(),
+    });
+  }
+  
+  console.log("client keys:", Object.keys(r_client || {}));
+
+  res.render("pages/edit", {
+    pageTitle: "Edit Client Profile",
+    r_client,
+    riskCategories: SEVERITIES,
+    isEditing: true,
+    form_action: "/:id/riskCategory",
+    form_method: 'PATCH',
+    now: new Date().toLocaleString(),
+  });
+};
+
+// SSR Client details Create page
+export const renderClientCreation = (req, res) => {
+
+  res.render("pages/creation", {
+    pageTitle: "Client Profile Creation",
+    r_client: {},
+    riskCategories: SEVERITIES,
+    form_action: "/",
+    form_method: "POST",
+    now: new Date().toLocaleString(),
+    isEditing: false
+  });
+};
+
+
 
 // API: all clients
 export const apiGetClients = (req, res) => {
