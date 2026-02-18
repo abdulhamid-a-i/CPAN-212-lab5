@@ -15,6 +15,7 @@ const loadClients = () => {
 const findClientById = (clients, id) =>
   clients.find(c => String(c.id) === String(id));
 
+
 // SSR: Home
 export const renderHome = (req, res) => {
   res.render("pages/home", {
@@ -76,7 +77,7 @@ export const renderClientEditDetails = (req, res) => {
     r_client,
     riskCategories: SEVERITIES,
     isEditing: true,
-    form_action: "/:id/riskCategory",
+    form_action: "/clients/:id/edit",
     form_method: 'PATCH',
     now: new Date().toLocaleString(),
   });
@@ -90,7 +91,7 @@ export const renderClientCreation = (req, res) => {
     r_client: {},
     riskCategories: SEVERITIES,
     form_action: "/",
-    form_method: "POST",
+    form_method: 'POST',
     now: new Date().toLocaleString(),
     isEditing: false
   });
