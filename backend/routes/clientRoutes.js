@@ -8,7 +8,7 @@ import {
   renderClientEditDetails,
   renderClientCreation
 } from "../controllers/clientController.js";
-import { createClient, updateClient } from "../data/clients.store.js";
+import { createClient, deleteClientById, updateClient } from "../data/clients.store.js";
 
 const router = express.Router();
 
@@ -21,16 +21,20 @@ router.get("/create", renderClientCreation);
 
 // Submit routes
 router.post("/", async (req, res) =>{
-  
-  console.log("form data recieved")
   const client = await createClient(req.body);
   res.status(201).json(client);
 })
 
 router.patch("/clients/:id/edit", async (req, res) =>{
-  console.log(req.body)
   const updated = await updateClient(req.body.id , req.body);
   res.json({ok: true, updated});
+})
+
+router.delete("/clients/:id", async (req, res) => {
+  console.log("delete request recieved")
+  console.log(req.body.id);
+  await deleteClientById(req.body.id);
+  res.status(200).json({ok: true, deleted:'deleted'})
 })
 
 // API routes (AngularJS-ready)

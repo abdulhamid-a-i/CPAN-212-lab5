@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { readIndex, writeIndex } from "../utils/fileStore.js";
+import { readIndex, writeIndex, deleteIndex } from "../utils/fileStore.js";
 import { todayKeyLocal } from "../utils/time.js";
 
 
@@ -24,3 +24,12 @@ export async function updateClient(id, data){
     await writeIndex(clients);
     return clients[idx];
 }
+
+  export async function deleteClientById(id){
+    const clients = await readIndex()
+    if (id < 0) return null;
+    const updatedClients = clients.filter(d => d.id !== id);
+    await deleteIndex(updatedClients);
+    return {ok: true}
+  }
+

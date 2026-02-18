@@ -42,31 +42,10 @@
     "createdDate": "2026-02-18"
   },
   {
-    "id": "db1cc869-1304-4238-9827-baa545c65135",
-    "fullName": "Test",
-    "email": "test@gmail.com",
-    "riskCategory": "High",
-    "createdDate": "2026-02-18"
-  },
-  {
-    "id": "09eb37f7-7f72-482f-ade9-5d6e1166f144",
-    "fullName": "Test",
-    "email": "test@gmail.com",
-    "riskCategory": "High",
-    "createdDate": "2026-02-18"
-  },
-  {
-    "id": "c391f561-4e5a-458d-a825-21cf7cd69325",
-    "fullName": "Test",
-    "email": "test@gmail.com",
-    "riskCategory": "High",
-    "createdDate": "2026-02-18"
-  },
-  {
-    "id": "f789a2e3-7306-4b1d-833d-7e449d008c86",
-    "fullName": "Test",
-    "email": "test@gmail.com",
-    "riskCategory": "High",
+    "id": "b7a8a432-2ddc-439b-bf8a-736ab019ba30",
+    "fullName": "Abdulhamid Weheliye",
+    "email": "a.weheliye@northstar.example",
+    "riskCategory": "Low",
     "createdDate": "2026-02-18"
   }
 ]
