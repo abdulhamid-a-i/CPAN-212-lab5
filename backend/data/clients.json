@@ -28,24 +28,10 @@
     "createdDate": "2025-11-18"
   },
   {
-    "id": "dfa23e09-a90e-4a66-843d-39647bbcf645",
-    "fullName": "Bruce Thompson",
-    "email": "bruce.thompson@northstar.example",
-    "riskCategory": "Low",
-    "createdDate": "2026-02-18"
-  },
-  {
-    "id": "d6653bce-a994-46ec-a145-17265823005a",
-    "fullName": "Test",
-    "email": "test@gmail.com",
-    "riskCategory": "High",
-    "createdDate": "2026-02-18"
-  },
-  {
-    "id": "b7a8a432-2ddc-439b-bf8a-736ab019ba30",
+    "id": "bae837c1-3631-469d-ad58-8fd0c4b0b972",
     "fullName": "Abdulhamid Weheliye",
     "email": "a.weheliye@northstar.example",
-    "riskCategory": "Low",
+    "riskCategory": "Medium",
     "createdDate": "2026-02-18"
   }
 ]
