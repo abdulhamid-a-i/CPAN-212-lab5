@@ -1,6 +1,6 @@
 import fs from "fs";
 
-import { PATHS, SEVERITIES } from "../config.js";
+import { PATHS, RISKCATEGORIES } from "../config.js";
 
 // ES module __dirname replacement (for controllers folder)
 
@@ -75,7 +75,7 @@ export const renderClientEditDetails = (req, res) => {
   res.render("pages/edit", {
     pageTitle: "Edit Client Profile",
     r_client,
-    riskCategories: SEVERITIES,
+    riskCategories: RISKCATEGORIES,
     isEditing: true,
     form_action: "/clients/:id/edit",
     form_method: 'PATCH',
@@ -89,7 +89,7 @@ export const renderClientCreation = (req, res) => {
   res.render("pages/creation", {
     pageTitle: "Client Profile Creation",
     r_client: {},
-    riskCategories: SEVERITIES,
+    riskCategories: RISKCATEGORIES,
     form_action: "/",
     form_method: 'POST',
     now: new Date().toLocaleString(),

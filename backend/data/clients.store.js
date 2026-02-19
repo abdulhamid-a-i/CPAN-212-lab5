@@ -4,8 +4,8 @@ import { todayKeyLocal } from "../utils/time.js";
 
 
 export async function findById(id) {
-  const clients = await readIndex();
-  return clients.find(i => i.id === id) ?? null;
+    const clients = await readIndex();
+    return clients.findIndex((i) => String(i.id) === String(id)) ?? null;
 }
 
 export async function createClient(data) {

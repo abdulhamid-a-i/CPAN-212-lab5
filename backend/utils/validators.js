@@ -1,4 +1,4 @@
-import { RISKCATEGORIES } from "../config";
+import { RISKCATEGORIES } from "../config.js";
 
 
 export function validateCreateClient(body) {

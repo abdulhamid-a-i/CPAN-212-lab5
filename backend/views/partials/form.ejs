@@ -60,15 +60,20 @@
         if (response.status === 201){
             document.getElementById('form-alert').innerText = "Client Created successfully";
             document.getElementById('form-alert').className ="alert alert-success mt-2";
-            form.reset();
+            window.location.href = '/clients';
         }
         else if (response.status === 200){
             document.getElementById('form-alert').innerText = "Client Updated successfully";
             document.getElementById('form-alert').className ="alert alert-success mt-2";
+            window.location.href = '/clients'
+        }
+        else if (response.status === 400){
+            document.getElementById('form-alert').innerText = "Invalid Input";
+            document.getElementById('form-alert').className ="alert alert-danger mt-2";
         }
         } catch (error) {
             console.error('Error: ', error);
-            document.getElementById('form-alert').innerText = "Client Created successfully";
+            document.getElementById('form-alert').innerText = "Error Occured";
             document.getElementById('form-alert').className ="alert alert-danger mt-2";
 
         }

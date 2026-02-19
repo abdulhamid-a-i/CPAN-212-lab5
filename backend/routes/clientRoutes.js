@@ -9,7 +9,7 @@ import {
   renderClientCreation
 } from "../controllers/clientController.js";
 import { findById,createClient, deleteClientById, updateClient } from "../data/clients.store.js";
-import { validateCreateClient } from "../utils/validators.js";
+import { validateCreateClient, validateUpdate } from "../utils/validators.js";
 
 
 const router = express.Router();
@@ -23,7 +23,7 @@ router.get("/create", renderClientCreation);
 
 // Submit routes
 router.post("/", async (req, res) =>{
-  const result = await validateCreateClient(body);
+  const result = await validateCreateClient(req.body);
   if(!result.ok){
     return res.status(400).json({ error: result.errors });
   } 
@@ -35,7 +35,7 @@ router.patch("/clients/:id/edit", async (req, res) =>{
   const client = await findById(req.params.id);
   if (!client) return res.status(404).json({ error: "Client not found" });
 
-    const result = await validateCreateClient(body);
+    const result = await validateUpdate(req.body);
   if(!result.ok){
     return res.status(400).json({ error: result.errors });
   } 
