@@ -27,14 +27,19 @@ router.post("/", async (req, res) =>{
   if(!result.ok){
     return res.status(400).json({ error: result.errors });
   } 
-  const client = await createClient(req.body);
+  const client = await createClient(result.value);
   res.status(201).json(client);
 })
 
 router.patch("/clients/:id/edit", async (req, res) =>{
   const client = await findById(req.params.id);
   if (!client) return res.status(404).json({ error: "Client not found" });
-  
+
+    const result = await validateCreateClient(body);
+  if(!result.ok){
+    return res.status(400).json({ error: result.errors });
+  } 
+
   const updated = await updateClient(req.body.id , req.body);
   res.status(200).json({ok: true, updated});
 })
