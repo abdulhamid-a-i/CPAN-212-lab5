@@ -62,6 +62,10 @@
             document.getElementById('form-alert').className ="alert alert-success mt-2";
             form.reset();
         }
+        else if (response.status === 200){
+            document.getElementById('form-alert').innerText = "Client Updated successfully";
+            document.getElementById('form-alert').className ="alert alert-success mt-2";
+        }
         } catch (error) {
             console.error('Error: ', error);
             document.getElementById('form-alert').innerText = "Client Created successfully";

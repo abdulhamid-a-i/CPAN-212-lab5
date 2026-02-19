@@ -27,7 +27,7 @@ router.post("/", async (req, res) =>{
 
 router.patch("/clients/:id/edit", async (req, res) =>{
   const updated = await updateClient(req.body.id , req.body);
-  res.json({ok: true, updated});
+  res.status(200).json({ok: true, updated});
 })
 
 router.delete("/clients/:id", async (req, res) => {
