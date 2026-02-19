@@ -28,7 +28,7 @@ export async function updateClient(id, data){
   export async function deleteClientById(id){
     const clients = await readIndex()
     if (id < 0) return null;
-    const updatedClients = clients.filter(d => d.id !== id);
+    const updatedClients = clients.filter(d => String(d.id) !== String(id));
     await deleteIndex(updatedClients);
     return {ok: true}
   }

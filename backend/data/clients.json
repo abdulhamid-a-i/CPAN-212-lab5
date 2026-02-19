@@ -14,13 +14,6 @@
     "createdDate": "2025-10-14"
   },
   {
-    "id": 103,
-    "fullName": "Sophia Chen",
-    "email": "sophia.chen@northstar.example",
-    "riskCategory": "High",
-    "createdDate": "2025-11-03"
-  },
-  {
     "id": 104,
     "fullName": "Liam O'Connor",
     "email": "liam.oconnor@northstar.example",
@@ -28,10 +21,10 @@
     "createdDate": "2025-11-18"
   },
   {
-    "id": "55fb3669-3179-45e8-ad71-eb3d5b41aab6",
+    "id": "44bed153-8312-43f8-aa41-3e178b0e4482",
     "fullName": "Abdulhamid Weheliye",
     "email": "a.weheliye@northstar.example",
-    "riskCategory": "Medium",
+    "riskCategory": "High",
     "createdDate": "2026-02-19"
   }
 ]
