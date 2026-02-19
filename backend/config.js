@@ -14,4 +14,4 @@ export const PATHS = {
 
 console.log(PATHS.DATA_DIR)
 
-export const SEVERITIES = ["High", "Medium", "Low"];
+export const RISKCATEGORIES = ["High", "Medium", "Low"];

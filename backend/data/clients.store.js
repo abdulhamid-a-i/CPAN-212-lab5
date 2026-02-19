@@ -3,6 +3,11 @@ import { readIndex, writeIndex, deleteIndex } from "../utils/fileStore.js";
 import { todayKeyLocal } from "../utils/time.js";
 
 
+export async function findById(id) {
+  const clients = await readIndex();
+  return clients.find(i => i.id === id) ?? null;
+}
+
 export async function createClient(data) {
   const clients = await readIndex();
   const client = {
