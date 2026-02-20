@@ -1,1 +1,2 @@
 # CPAN-212-lab5
+The solution to clientsDetails.ejs not working was to replace all references to 'client' in the ejs template and in the values passed to renderClientDetails method in the clientController with another variable name such as, 'r_client'. This is because client is a reserved term in the latest versions of ejs.
